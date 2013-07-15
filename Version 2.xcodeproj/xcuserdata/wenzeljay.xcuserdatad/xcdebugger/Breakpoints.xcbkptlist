@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Version 2/TotalPowerController.m"
-         timestampString = "395310098.084522"
+         timestampString = "395567061.067648"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "56"
-         endingLineNumber = "56"
+         startingLineNumber = "98"
+         endingLineNumber = "98"
          landmarkName = "-bars"
          landmarkType = "5">
       </FileBreakpoint>

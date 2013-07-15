@@ -9,6 +9,9 @@
 #import "CplanViewController.h"
 #import <UIKit/UIKit.h>
 
+
+
+
 @interface CPlanViewController (){
     NSMutableArray *arrayOfData;
     sqlite3 *dataDB;
@@ -18,10 +21,9 @@
 
 @end
 
-
 @implementation CPlanViewController
-@synthesize label;
-@synthesize tableres;
+
+
 
 - (void)viewDidLoad
 {

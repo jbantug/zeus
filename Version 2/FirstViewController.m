@@ -20,9 +20,7 @@
 
 
 @implementation FirstViewController
-@synthesize label;
-@synthesize tableres;
-@synthesize searchField;
+
 
 - (void)viewDidLoad
 {
@@ -64,7 +62,7 @@
             while (sqlite3_step(statementt)==SQLITE_ROW) {
                 NSString *PlanName = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statementt, 2)];
     
-                label.text = PlanName;
+                _label.text = PlanName;
             }
         }
     }
@@ -188,7 +186,7 @@
 
 - (IBAction)mysearch:(id)sender {
      // [searchField resignFirstResponder];
-    NSString *qsearch = searchField.text;
+    NSString *qsearch = _searchField.text;
     sqlite3_stmt *statement;
     //result.text = searchField.text;
     
@@ -222,7 +220,7 @@
         }
     }
     [[self tableres]reloadData];
-    label.text = @"Results:";
+    _label.text = @"Results:";
 }
 
 /***************Querying(Updating)****************/
@@ -258,7 +256,7 @@
     }
     [[self tableres]reloadData];
    
-label.text = @"Updated!";
+_label.text = @"Updated!";
     
 }
 

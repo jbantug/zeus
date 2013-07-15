@@ -25,6 +25,9 @@
 		225F093C178FE1FA00EB0BE9 /* TotalPowerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 225F093B178FE1FA00EB0BE9 /* TotalPowerController.m */; };
 		2275A7D1178E94CA00C04CB9 /* CplanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2275A7D0178E94CA00C04CB9 /* CplanViewController.m */; };
 		2275A7D4178EA2D700C04CB9 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2275A7D3178EA2D700C04CB9 /* GraphView.m */; };
+		2298657F1793D50300522CDA /* image2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2298657E1793D50300522CDA /* image2.png */; };
+		229865821793E26400522CDA /* totalScrollview.m in Sources */ = {isa = PBXBuildFile; fileRef = 229865811793E26400522CDA /* totalScrollview.m */; };
+		229865861793F19900522CDA /* MyGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229865851793F19900522CDA /* MyGraphViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +59,11 @@
 		2275A7D0178E94CA00C04CB9 /* CplanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CplanViewController.m; sourceTree = "<group>"; };
 		2275A7D2178EA2D700C04CB9 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
 		2275A7D3178EA2D700C04CB9 /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
+		2298657E1793D50300522CDA /* image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image2.png; sourceTree = "<group>"; };
+		229865801793E26400522CDA /* totalScrollview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = totalScrollview.h; sourceTree = "<group>"; };
+		229865811793E26400522CDA /* totalScrollview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = totalScrollview.m; sourceTree = "<group>"; };
+		229865841793F19900522CDA /* MyGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGraphViewController.h; sourceTree = "<group>"; };
+		229865851793F19900522CDA /* MyGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGraphViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +114,9 @@
 		222756ED177C426800F219CD /* Version 2 */ = {
 			isa = PBXGroup;
 			children = (
+				229865841793F19900522CDA /* MyGraphViewController.h */,
+				229865851793F19900522CDA /* MyGraphViewController.m */,
+				2298657E1793D50300522CDA /* image2.png */,
 				222756FF177C426800F219CD /* MainStoryboard.storyboard */,
 				2227570F177C490A00F219CD /* mydata.h */,
 				22275710177C490A00F219CD /* mydata.m */,
@@ -119,8 +130,6 @@
 				2275A7D3178EA2D700C04CB9 /* GraphView.m */,
 				22275702177C426800F219CD /* FirstViewController.h */,
 				22275703177C426800F219CD /* FirstViewController.m */,
-				225F093A178FE1FA00EB0BE9 /* TotalPowerController.h */,
-				225F093B178FE1FA00EB0BE9 /* TotalPowerController.m */,
 				222756EE177C426800F219CD /* Supporting Files */,
 			);
 			path = "Version 2";
@@ -131,6 +140,7 @@
 			children = (
 				222756EF177C426800F219CD /* Version 2-Info.plist */,
 				222756F0177C426800F219CD /* InfoPlist.strings */,
+				229865831793E9D500522CDA /* archived */,
 				222756F3177C426800F219CD /* main.m */,
 				222756F5177C426800F219CD /* Version 2-Prefix.pch */,
 				222756F9177C426800F219CD /* Default.png */,
@@ -138,6 +148,17 @@
 				222756FD177C426800F219CD /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		229865831793E9D500522CDA /* archived */ = {
+			isa = PBXGroup;
+			children = (
+				225F093A178FE1FA00EB0BE9 /* TotalPowerController.h */,
+				225F093B178FE1FA00EB0BE9 /* TotalPowerController.m */,
+				229865801793E26400522CDA /* totalScrollview.h */,
+				229865811793E26400522CDA /* totalScrollview.m */,
+			);
+			name = archived;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +217,7 @@
 				222756FC177C426800F219CD /* Default@2x.png in Resources */,
 				222756FE177C426800F219CD /* Default-568h@2x.png in Resources */,
 				22275701177C426800F219CD /* MainStoryboard.storyboard in Resources */,
+				2298657F1793D50300522CDA /* image2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +236,8 @@
 				2275A7D1178E94CA00C04CB9 /* CplanViewController.m in Sources */,
 				2275A7D4178EA2D700C04CB9 /* GraphView.m in Sources */,
 				225F093C178FE1FA00EB0BE9 /* TotalPowerController.m in Sources */,
+				229865821793E26400522CDA /* totalScrollview.m in Sources */,
+				229865861793F19900522CDA /* MyGraphViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +322,7 @@
 		22275708177C426800F219CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Version 2/Version 2-Prefix.pch";
 				INFOPLIST_FILE = "Version 2/Version 2-Info.plist";
@@ -309,6 +334,7 @@
 		22275709177C426800F219CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Version 2/Version 2-Prefix.pch";
 				INFOPLIST_FILE = "Version 2/Version 2-Info.plist";
