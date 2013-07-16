@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define kGraphHeight 900
+#define kGraphHeight 950
 #define kDefaultGraphWidth 300
 #define kOffsetX 5
 #define kStepX 5
