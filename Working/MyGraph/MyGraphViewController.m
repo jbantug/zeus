@@ -44,8 +44,8 @@
     return YES;
 }
 
-- (void)dealloc {
-    [scroller release];
-    [super dealloc];
-}
+//- (void)dealloc {
+ //   [scroller release];
+ //   [super dealloc];
+//}
 @end

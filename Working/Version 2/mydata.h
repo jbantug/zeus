@@ -18,6 +18,7 @@
 @property(assign)float positionY;
 @property(assign)float kwUsed;
 @property(assign)int discount;
+@property(assign)int testval;
 @property(nonatomic, strong)NSString *details;
 
 

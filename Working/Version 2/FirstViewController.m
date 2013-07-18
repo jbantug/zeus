@@ -13,7 +13,7 @@
     NSMutableArray *arrayOfData;
     sqlite3 *dataDB;
     NSString *dbPathString;
-    
+    int test,testt;
     }
 
 @end
@@ -24,6 +24,10 @@
 //@synthesize tableres;
 //@synthesize searchField;
 
+
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -32,8 +36,9 @@
     [[self tableres]setDelegate:self];
     [[self tableres]setDataSource:self];
     [self createOrOpenDB];
-    [self firstquery];
-
+    [self testquery];
+    //[self testquery];
+    //[self receive];
     //[NSTimer scheduledTimerWithTimeInterval:0.6 target:self selector:@selector(qbutton:) userInfo:nil repeats:YES];
     //[[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
     //[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector: userInfo:nil repeats:YES];
@@ -48,8 +53,7 @@
     
 }
 
--(void)firstquery{
-    
+-(int)testquery{
     sqlite3_stmt *statementt;
     //result.text = searchField.text;
     
@@ -57,20 +61,22 @@
         [arrayOfData removeAllObjects];
         
         
-    NSString *querySql = [NSString stringWithFormat:@"SELECT * FROM POSITIONS WHERE COMPONENT='Bar1' "];
+        NSString *querySql = [NSString stringWithFormat:@"SELECT * FROM POWERUSED WHERE RECORDID='1' "];
         const char* query_sql = [querySql UTF8String];
         
         if(sqlite3_prepare(dataDB, query_sql, -1, &statementt, NULL)==SQLITE_OK){
             while (sqlite3_step(statementt)==SQLITE_ROW) {
                 NSString *PlanName = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statementt, 2)];
-    
-                _label.text = PlanName;
+                
+                //_label.text = PlanName;
+                test = [PlanName intValue];
+                NSLog(@"%d", test);
+                
             }
         }
     }
     
 }
-
 
 
 /****************Database Creation and Checking if Already Existing************/

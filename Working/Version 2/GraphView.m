@@ -8,9 +8,14 @@
 
 #import "GraphView.h"
 
+
 @implementation GraphView
-int x,y,width,z,p,year,i,py,h,g,a,r,f;
-int selection =2;
+int x,y,width,z,p,year,i,py,h,g,a,r,f,test;
+//int selection =2;
+NSMutableArray *arrayOfData;
+sqlite3 *dataDB;
+NSString *dbPathString;
+
 
 
 - (id)initWithFrame:(CGRect)frame
@@ -26,8 +31,34 @@ int selection =2;
 - (void)drawRect:(CGRect)rect{
     [self bars];
     [self fonts];
-    
+    [self testquery];
 }
+
+-(int)testquery{
+    sqlite3_stmt *statementt;
+    //result.text = searchField.text;
+    
+    if (sqlite3_open([dbPathString UTF8String],&dataDB)==SQLITE_OK) {
+        [arrayOfData removeAllObjects];
+        
+        
+        NSString *querySql = [NSString stringWithFormat:@"SELECT * FROM POWERUSED WHERE RECORDID='1' "];
+        const char* query_sql = [querySql UTF8String];
+        
+        if(sqlite3_prepare(dataDB, query_sql, -1, &statementt, NULL)==SQLITE_OK){
+            while (sqlite3_step(statementt)==SQLITE_ROW) {
+                NSString *PlanName = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statementt, 2)];
+                
+                //_label.text = PlanName;
+                test = [PlanName intValue];
+                NSLog(@"%d", test);
+
+            }
+        }
+    }
+   
+}
+
 
 -(void)fonts{
     
@@ -35,11 +66,11 @@ int selection =2;
     
     
     year=2011;
-    y=170;
+    y=100;
     for (i=0; i<=15; i++) {//YearFont
         
         [[UIColor lightGrayColor]set];
-        if (i==selection) {
+        if (i==2) {
             UIFont *helveticaBold = [UIFont fontWithName:@"HelveticaNeue-Bold"size:15.0f];
             NSString *myString = [NSString stringWithFormat:@"%d",year];
             [myString drawAtPoint:CGPointMake(45, y) withFont:helveticaBold];
@@ -62,7 +93,7 @@ int selection =2;
         NSString *season2 = @"Autumn";
         NSString *season3 = @"Winter";
         NSString *season4 = @"Spring";
-        if (i==selection+1) {
+        if (i==3) {
             
             UIFont *fontstyle = [UIFont fontWithName:@"HelveticaNeue-Bold"size:15.0f];
             [season1 drawAtPoint:CGPointMake(130, py) withFont:fontstyle];
@@ -90,14 +121,8 @@ int selection =2;
             
             
         }
-        
-        
+    
     }
-    
-    
-    //v[p];
-    
-    
     
 }
 
@@ -117,7 +142,7 @@ int selection =2;
         
         
         
-        if(p==selection+11){
+        if(p==13){
             
             
             [[UIColor lightGrayColor]set];
@@ -169,7 +194,7 @@ int selection =2;
         [[UIColor darkGrayColor]set];
         CGContextRef currentContext = UIGraphicsGetCurrentContext();
         
-        if (p==selection+1) {
+        if (p==3) {
             CGContextSetLineWidth(currentContext, 98);
             CGContextMoveToPoint(currentContext, 0.0f, x+10);
             CGContextAddLineToPoint(currentContext, 123, x+10);

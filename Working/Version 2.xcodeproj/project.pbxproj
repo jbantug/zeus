@@ -26,6 +26,7 @@
 		225F0939178FB6B400EB0BE9 /* TotalPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 225F0938178FB6B400EB0BE9 /* TotalPViewController.m */; };
 		2275A7D1178E94CA00C04CB9 /* CplanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2275A7D0178E94CA00C04CB9 /* CplanViewController.m */; };
 		2275A7D4178EA2D700C04CB9 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2275A7D3178EA2D700C04CB9 /* GraphView.m */; };
+		22F2FE271797B83700E42076 /* ClassA.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F2FE261797B83700E42076 /* ClassA.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,8 @@
 		2275A7D0178E94CA00C04CB9 /* CplanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CplanViewController.m; sourceTree = "<group>"; };
 		2275A7D2178EA2D700C04CB9 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
 		2275A7D3178EA2D700C04CB9 /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
+		22F2FE251797B83700E42076 /* ClassA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassA.h; sourceTree = "<group>"; };
+		22F2FE261797B83700E42076 /* ClassA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassA.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				225F0937178FB6B400EB0BE9 /* TotalPViewController.h */,
 				225F0938178FB6B400EB0BE9 /* TotalPViewController.m */,
 				2275A7D0178E94CA00C04CB9 /* CplanViewController.m */,
+				22F2FE251797B83700E42076 /* ClassA.h */,
+				22F2FE261797B83700E42076 /* ClassA.m */,
 				2275A7D2178EA2D700C04CB9 /* GraphView.h */,
 				2275A7D3178EA2D700C04CB9 /* GraphView.m */,
 				2227658E179684FA00A10386 /* MyGraphViewController.h */,
@@ -220,6 +225,7 @@
 				2275A7D4178EA2D700C04CB9 /* GraphView.m in Sources */,
 				225F0939178FB6B400EB0BE9 /* TotalPViewController.m in Sources */,
 				22276590179684FA00A10386 /* MyGraphViewController.m in Sources */,
+				22F2FE271797B83700E42076 /* ClassA.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

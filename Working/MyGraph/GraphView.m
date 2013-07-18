@@ -9,8 +9,10 @@
 #import "GraphView.h"
 
 @implementation GraphView
-int x,y,width,z,p,year,i,py,h,g,a,r,f;
+int x,y,width,z,p,i,py,h,g,a,r,f;
 int selection =2;
+int day,year,month,season,startyr,row,until;
+int arr[];
 
 
 - (id)initWithFrame:(CGRect)frame
@@ -25,60 +27,141 @@ int selection =2;
 
 - (void)drawRect:(CGRect)rect{
     [self bars];
-    [self fonts];
+    [self fontsAndBars];
 
 }
 
--(void)fonts{
-    
-   // int read = _bar();
-   
-   
-    year=2011;
-    y=170;
-    for (i=0; i<=15; i++) {//YearFont
 
-    [[UIColor lightGrayColor]set];
-        if (i==selection) {
-            UIFont *helveticaBold = [UIFont fontWithName:@"HelveticaNeue-Bold"size:15.0f];
-            NSString *myString = [NSString stringWithFormat:@"%d",year];
-            [myString drawAtPoint:CGPointMake(45, y) withFont:helveticaBold];
-            year++;
-            y+=100;
-            
+
+-(void)fontsAndBars{
+    
+    
+/********Start of Year Font and Box******/
+/******Setting current date********/
+    startyr = 2007;
+    year = 2010;
+    //until = 2017;
+    day = 18;
+    month = 9;
+    row=((year+1)-startyr);
+    
+    //Determining Seasons (Australia)
+    if ((month >= 1 && month < 3) || month == 12) {
+        season = 1;//Summer
+    }else if(month >= 3 && month < 6){
+        season = 2;//Autumn
+    }else if(month >= 6 && month < 9 ){
+        season = 3;//Winter
+    }else{
+        season = 4;//Spring
+    }
+
+    x=150;//serves as y-position
+    //YearFontBox
+    for ( i=0; i<row; ++i) {
+        [[UIColor darkGrayColor]set];
+        CGContextRef currentContext = UIGraphicsGetCurrentContext();
+        
+        if (i == (year-startyr)) {
+            CGContextSetLineWidth(currentContext, 98);
+            CGContextMoveToPoint(currentContext, 0.0f, x+10);
+            CGContextAddLineToPoint(currentContext, 123, x+10);
+            CGContextStrokePath(currentContext);
+            x+=100;
         }else{
-    UIFont *helveticaBold = [UIFont fontWithName:@"HelveticaNeue-Bold"size:15.0f];
-    NSString *myString = [NSString stringWithFormat:@"%d",year];
-    [myString drawAtPoint:CGPointMake(45, y) withFont:helveticaBold];
-    year++;
-    y+=80;
+            CGContextSetLineWidth(currentContext, 78);
+            CGContextMoveToPoint(currentContext, 0.0f, x);
+            CGContextAddLineToPoint(currentContext, 123, x);
+            CGContextStrokePath(currentContext);
+            x+=80;
         }
     }
-    py=110;
-    for (i=0; i<=10; i++) {//SeasonFont
+    
+    y=170;
+    
+    for (i=0; i<row; ++i) {//YearFont
         
-            [[UIColor blackColor]set];
-            NSString *season1 = @"Summer";
-            NSString *season2 = @"Autumn";
-            NSString *season3 = @"Winter";
-            NSString *season4 = @"Spring";
-       if (i==selection+1) {
-          
-           UIFont *fontstyle = [UIFont fontWithName:@"HelveticaNeue-Bold"size:15.0f];
-           [season1 drawAtPoint:CGPointMake(130, py) withFont:fontstyle];
-           py+=20;
-            UIFont *fontstyle2 = [UIFont fontWithName:@"HelveticaNeue-Bold"size:30.0f];
-           [season2 drawAtPoint:CGPointMake(130, py) withFont:fontstyle2];
-           py+=40;
-           UIFont *fontstyle3 = [UIFont fontWithName:@"HelveticaNeue-Bold"size:15.0f];
-           [season3 drawAtPoint:CGPointMake(130, py) withFont:fontstyle3];
-           py+=20;
-           [season4 drawAtPoint:CGPointMake(130, py) withFont:fontstyle3];
-           py+=20;
+        [[UIColor lightGrayColor]set];
+        if (startyr == (year-1)) {
+            
+            UIFont *helveticaBold = [UIFont fontWithName:@"HelveticaNeue-Bold"size:15.0f];
+            NSString *myString = [NSString stringWithFormat:@"%d",startyr];
+            [myString drawAtPoint:CGPointMake(45, y) withFont:helveticaBold];
+            startyr++;
+            y+=100;
+        
        }else{
+           UIFont *helveticaBold = [UIFont fontWithName:@"HelveticaNeue-Bold"size:15.0f];
+           NSString *myString = [NSString stringWithFormat:@"%d",startyr];
+           [myString drawAtPoint:CGPointMake(45, y) withFont:helveticaBold];
+           startyr++;
+           y+=80;
+       }
+    }
+    
+/*****End of Year Font and box******/
+  
+/*****Start of Seasons Font*********/
+    
+    py=110;
+    for (i=1; i<=row; i++) {//SeasonFont
         
+        [[UIColor blackColor]set];
+        NSString *season1 = @"Summer";
+        NSString *season2 = @"Autumn";
+        NSString *season3 = @"Winter";
+        NSString *season4 = @"Spring";
+        
+        if (i==row) {
+            
+            UIFont *normal = [UIFont fontWithName:@"HelveticaNeue-Bold"size:15.0f];
+            UIFont *bold = [UIFont fontWithName:@"HelveticaNeue-Bold"size:30.0f];
+            
+            if(season == 1){
+                [season1 drawAtPoint:CGPointMake(130, py) withFont:bold];
+                py+=40;
+                [season2 drawAtPoint:CGPointMake(130, py) withFont:normal];
+                py+=20;
+                [season3 drawAtPoint:CGPointMake(130, py) withFont:normal];
+                py+=20;
+                [season4 drawAtPoint:CGPointMake(130, py) withFont:normal];
+                py+=20;
+                               
+            }else if(season == 2){
+                [season1 drawAtPoint:CGPointMake(130, py) withFont:normal];
+                py+=20;
+                [season2 drawAtPoint:CGPointMake(130, py) withFont:bold];
+                py+=40;
+                [season3 drawAtPoint:CGPointMake(130, py) withFont:normal];
+                py+=20;
+                [season4 drawAtPoint:CGPointMake(130, py) withFont:normal];
+                py+=20;
+                
+            }else if(season == 3){
+                [season1 drawAtPoint:CGPointMake(130, py) withFont:normal];
+                py+=20;
+                [season2 drawAtPoint:CGPointMake(130, py) withFont:normal];
+                py+=20;
+                [season3 drawAtPoint:CGPointMake(130, py) withFont:bold];
+                py+=40;
+                [season4 drawAtPoint:CGPointMake(130, py) withFont:normal];
+                py+=20;
+                
+            }else{
+                [season1 drawAtPoint:CGPointMake(130, py) withFont:normal];
+                py+=20;
+                [season2 drawAtPoint:CGPointMake(130, py) withFont:normal];
+                py+=20;
+                [season3 drawAtPoint:CGPointMake(130, py) withFont:normal];
+                py+=20;
+                [season4 drawAtPoint:CGPointMake(130, py) withFont:bold];
+                py+=40;
+                
+            }
+        }else{
+            
             UIFont *fontstyle = [UIFont fontWithName:@"HelveticaNeue-Bold"size:15.0f];
-
+            
             [season1 drawAtPoint:CGPointMake(130, py) withFont:fontstyle];
             py+=20;
             [season2 drawAtPoint:CGPointMake(130, py) withFont:fontstyle];
@@ -87,37 +170,28 @@ int selection =2;
             py+=20;
             [season4 drawAtPoint:CGPointMake(130, py) withFont:fontstyle];
             py+=20;
-
+            
             
         }
-
-            
+        
     }
-    
-
-    //v[p];
-
-    
     
 }
 
 -(int)bars{
     
-    x=150;
+  /*  
     z=120;
     y=110;
     //a=14350;
-
-    for (p=0; p<=70;p++ ) {
+    
+    for (p=0; p<=40;p++ ) {
         int v[p];
         v[p] = rand() % 150 + 140;
         //NSLog(@"Value of hello = %d", v[p]);
-    
         
-
-            
         
-        if(p==selection+11){
+        if(p==13){
             
             
             [[UIColor lightGrayColor]set];
@@ -160,35 +234,35 @@ int selection =2;
             year++;
             y+=20;
         }
-
-
-
+        
+        
+        
     }
     
     for ( p=0; p<=30; p++) {//
         [[UIColor darkGrayColor]set];
         CGContextRef currentContext = UIGraphicsGetCurrentContext();
-
-        if (p==selection+1) {
+        
+       /* if (p==3) {
             CGContextSetLineWidth(currentContext, 98);
             CGContextMoveToPoint(currentContext, 0.0f, x+10);
             CGContextAddLineToPoint(currentContext, 123, x+10);
             CGContextStrokePath(currentContext);
-            x+=100;
-        }else{
+            x+=10;
+       // }else{
             CGContextSetLineWidth(currentContext, 78);
             CGContextMoveToPoint(currentContext, 0.0f, x);
             CGContextAddLineToPoint(currentContext, 123, x);
             CGContextStrokePath(currentContext);
             x+=80;
-        }
-   
-    }
+       // }
+        
+    }*/
     
-
-  return a;
     
-
+//return a;
+    
+    
     /*
      for (int c=0; c<1000; c+=144) {
      
@@ -221,10 +295,8 @@ int selection =2;
      [[UIColor blackColor] setStroke];
      [path1 stroke];
      */
-    
+
 }
-
-
 /*
 - (void)drawRect:(CGRect)rect
 {
