@@ -12,6 +12,6 @@
     UIScrollView *scroller;
 }
 
-@property (nonatomic, retain) IBOutlet UIScrollView *scroller;
+@property (nonatomic, retain) IBOutlet UIScrollView *scroll;
 
 @end

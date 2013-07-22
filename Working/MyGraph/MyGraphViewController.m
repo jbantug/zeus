@@ -10,7 +10,7 @@
 #import "GraphView.h"
 
 @implementation MyGraphViewController
-@synthesize scroller;
+//@synthesize scroller;
 
 - (void)didReceiveMemoryWarning
 {

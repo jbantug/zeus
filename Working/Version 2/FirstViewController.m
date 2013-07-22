@@ -25,9 +25,6 @@
 //@synthesize searchField;
 
 
-
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -35,8 +32,7 @@
     arrayOfData = [[NSMutableArray alloc]init];
     [[self tableres]setDelegate:self];
     [[self tableres]setDataSource:self];
-    [self createOrOpenDB];
-    [self testquery];
+    //[self createOrOpenDB];
     //[self testquery];
     //[self receive];
     //[NSTimer scheduledTimerWithTimeInterval:0.6 target:self selector:@selector(qbutton:) userInfo:nil repeats:YES];
@@ -52,7 +48,7 @@
     [super viewDidUnload];
     
 }
-
+/*
 -(int)testquery{
     sqlite3_stmt *statementt;
     //result.text = searchField.text;
@@ -78,8 +74,8 @@
     
 }
 
-
-/****************Database Creation and Checking if Already Existing************/
+*/
+/****************Database Creation and Checking if Already Existing***********
 -(void)createOrOpenDB
 {
     NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -109,7 +105,7 @@
     }
 }
 
-
+*/
 
 /***************Formating results on table****************/
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

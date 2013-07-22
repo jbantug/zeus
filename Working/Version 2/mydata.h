@@ -7,9 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface mydata : NSObject
 
+
+@property(nonatomic, strong)NSString *username;
+@property(nonatomic, strong)NSString *password;
 @property(nonatomic, strong)NSString *planName;
 @property(nonatomic, strong)NSString *startDate;
 @property(nonatomic, strong)NSString *endDate;

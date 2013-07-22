@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22E60F5D179CD5B9003664CA /* mydata.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E60F5C179CD5B9003664CA /* mydata.m */; };
 		B13C62A11424BFBD005DACC6 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = B13C62A01424BFBD005DACC6 /* background.png */; };
 		B16E846D1419FA1C00B10FC2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B16E846C1419FA1C00B10FC2 /* UIKit.framework */; };
 		B16E846F1419FA1C00B10FC2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B16E846E1419FA1C00B10FC2 /* Foundation.framework */; };
@@ -20,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22E60F5B179CD5B9003664CA /* mydata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mydata.h; sourceTree = "<group>"; };
+		22E60F5C179CD5B9003664CA /* mydata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mydata.m; sourceTree = "<group>"; };
 		B13C62A01424BFBD005DACC6 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		B16E84681419FA1C00B10FC2 /* MyGraph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGraph.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B16E846C1419FA1C00B10FC2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -90,7 +93,8 @@
 		B16E84721419FA1C00B10FC2 /* MyGraph */ = {
 			isa = PBXGroup;
 			children = (
-				B13C629E1424BF6D005DACC6 /* Artwork */,
+				22E60F5B179CD5B9003664CA /* mydata.h */,
+				22E60F5C179CD5B9003664CA /* mydata.m */,
 				B16E848C1421E2AC00B10FC2 /* GraphView.h */,
 				B16E848D1421E2AC00B10FC2 /* GraphView.m */,
 				B16E847B1419FA1C00B10FC2 /* MyGraphAppDelegate.h */,
@@ -98,6 +102,7 @@
 				B16E84811419FA1C00B10FC2 /* MyGraphViewController.h */,
 				B16E84821419FA1C00B10FC2 /* MyGraphViewController.m */,
 				B16E84841419FA1C00B10FC2 /* MyGraphViewController.xib */,
+				B13C629E1424BF6D005DACC6 /* Artwork */,
 				B16E84731419FA1C00B10FC2 /* Supporting Files */,
 			);
 			path = MyGraph;
@@ -181,6 +186,7 @@
 				B16E847D1419FA1C00B10FC2 /* MyGraphAppDelegate.m in Sources */,
 				B16E84831419FA1C00B10FC2 /* MyGraphViewController.m in Sources */,
 				B16E848E1421E2AC00B10FC2 /* GraphView.m in Sources */,
+				22E60F5D179CD5B9003664CA /* mydata.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

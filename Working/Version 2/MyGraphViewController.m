@@ -10,7 +10,7 @@
 #import "GraphView.h"
 
 @implementation MyGraphViewController
-@synthesize scroller;
+@synthesize scroll;
 
 - (void)didReceiveMemoryWarning
 {
@@ -31,7 +31,7 @@
 
 - (void)viewDidUnload
 {
-    [self setScroller:nil];
+    [self setScroll:nil];
     [super viewDidUnload];
     
     

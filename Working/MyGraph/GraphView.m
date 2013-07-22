@@ -10,9 +10,8 @@
 
 @implementation GraphView
 int x,y,width,z,p,i,py,h,g,a,r,f;
-int selection =2;
-int day,year,month,season,startyr,row,until;
-int arr[];
+int day,year,month,season,startyr,row,until,numrow,temp,tempp,count,hold;
+
 
 
 - (id)initWithFrame:(CGRect)frame
@@ -26,7 +25,7 @@ int arr[];
 
 
 - (void)drawRect:(CGRect)rect{
-    [self bars];
+
     [self fontsAndBars];
 
 }
@@ -39,14 +38,18 @@ int arr[];
 /********Start of Year Font and Box******/
 /******Setting current date********/
     startyr = 2007;
-    year = 2010;
-    //until = 2017;
-    day = 18;
-    month = 9;
+    until = 2017;
+    //currentDate
+    year = 2011;    //
+    day = 19;       // Replace these values with the queried data from sql
+    month = 8;      //
+
+    
     row=((year+1)-startyr);
+    numrow = until-startyr;
     
     //Determining Seasons (Australia)
-    if ((month >= 1 && month < 3) || month == 12) {
+    if (month >= 1 && month < 3) {
         season = 1;//Summer
     }else if(month >= 3 && month < 6){
         season = 2;//Autumn
@@ -58,7 +61,7 @@ int arr[];
 
     x=150;//serves as y-position
     //YearFontBox
-    for ( i=0; i<row; ++i) {
+    for ( i=0; i<numrow; ++i) {
         [[UIColor darkGrayColor]set];
         CGContextRef currentContext = UIGraphicsGetCurrentContext();
         
@@ -77,9 +80,96 @@ int arr[];
         }
     }
     
+    
+    z=120;
+    y=110;
+    temp = (numrow*4);
+    tempp = (((year+1) - startyr)*4)-1;
+    hold = year-startyr;
+    
+   // NSLog(@"%d",temp);
+    //Graph Bars
+    for (p=0; p<numrow; ++p ) {
+        int v[p];
+        
+        for (count=0; count<4; count++) {
+                v[p] = rand() % 150 + 140;
+            
+            if (p == hold) {
+                
+                if (count == (season-1)) {
+                    [[UIColor redColor]set];
+                    CGContextRef currentContext = UIGraphicsGetCurrentContext();
+                    
+                    CGContextSetLineWidth(currentContext, 39);
+                    CGContextMoveToPoint(currentContext, 124, z+10);
+                    CGContextAddLineToPoint(currentContext, v[p], z+10);
+                    CGContextStrokePath(currentContext);
+                    z+=40;
+                    a = v[p];
+                    
+                    [[UIColor blackColor]set];
+                    NSString *myString = @"$ ";
+                    UIFont *helveticaBold = [UIFont fontWithName:@"HelveticaNeue-Bold"size:20.0f];
+                    NSString *value = [NSString stringWithFormat:@"%d",a];
+                    NSString *concat = [myString stringByAppendingString:value];
+                    [concat drawAtPoint:CGPointMake(260, y+7) withFont:helveticaBold];
+                    year++;
+                    y+=40;
+                }else{
+                    
+                    
+                    [[UIColor lightGrayColor]set];
+                    CGContextRef currentContext = UIGraphicsGetCurrentContext();
+                    CGContextSetLineWidth(currentContext, 19);
+                    CGContextMoveToPoint(currentContext, 124, z);
+                    CGContextAddLineToPoint(currentContext, v[p], z);
+                    CGContextStrokePath(currentContext);
+                    z+=20;
+                    a = v[p];
+                    
+                    [[UIColor blueColor]set];
+                    NSString *myString = @"$ ";
+                    UIFont *helveticaBold = [UIFont fontWithName:@"HelveticaNeue-Bold"size:15.0f];
+                    NSString *value = [NSString stringWithFormat:@"%d",a];
+                    NSString *concat = [myString stringByAppendingString:value];
+                    [concat drawAtPoint:CGPointMake(270, y) withFont:helveticaBold];
+                    year++;
+                    y+=20;
+                }
+
+
+
+            }else{
+           
+                [[UIColor lightGrayColor]set];
+                CGContextRef currentContext = UIGraphicsGetCurrentContext();
+                CGContextSetLineWidth(currentContext, 19);
+                CGContextMoveToPoint(currentContext, 124, z);
+                CGContextAddLineToPoint(currentContext, v[p], z);
+                CGContextStrokePath(currentContext);
+                z+=20;
+                a = v[p];
+                
+                [[UIColor blueColor]set];
+                NSString *myString = @"$ ";
+                UIFont *helveticaBold = [UIFont fontWithName:@"HelveticaNeue-Bold"size:15.0f];
+                NSString *value = [NSString stringWithFormat:@"%d",a];
+                NSString *concat = [myString stringByAppendingString:value];
+                [concat drawAtPoint:CGPointMake(270, y) withFont:helveticaBold];
+                year++;
+                y+=20;
+            }
+
+        }
+       // }
+    }//End of graph Bars
+
+    
+    
     y=170;
     
-    for (i=0; i<row; ++i) {//YearFont
+    for (i=0; i<numrow; ++i) {//YearFont
         
         [[UIColor lightGrayColor]set];
         if (startyr == (year-1)) {
@@ -89,7 +179,7 @@ int arr[];
             [myString drawAtPoint:CGPointMake(45, y) withFont:helveticaBold];
             startyr++;
             y+=100;
-        
+        NSLog(@"%d", i);
        }else{
            UIFont *helveticaBold = [UIFont fontWithName:@"HelveticaNeue-Bold"size:15.0f];
            NSString *myString = [NSString stringWithFormat:@"%d",startyr];
@@ -104,7 +194,7 @@ int arr[];
 /*****Start of Seasons Font*********/
     
     py=110;
-    for (i=1; i<=row; i++) {//SeasonFont
+    for (i=1; i<=numrow; i++) {//SeasonFont
         
         [[UIColor blackColor]set];
         NSString *season1 = @"Summer";
@@ -173,25 +263,22 @@ int arr[];
             
             
         }
-        
+
+    
+    
     }
+    
+
     
 }
 
 -(int)bars{
     
-  /*  
-    z=120;
-    y=110;
-    //a=14350;
+ 
+         //NSLog(@"Value of hello = %d", v[p]);
     
-    for (p=0; p<=40;p++ ) {
-        int v[p];
-        v[p] = rand() % 150 + 140;
-        //NSLog(@"Value of hello = %d", v[p]);
-        
-        
-        if(p==13){
+    
+       /* if(p==13){
             
             
             [[UIColor lightGrayColor]set];
@@ -212,34 +299,14 @@ int arr[];
             [concat drawAtPoint:CGPointMake(260, y+7) withFont:helveticaBold];
             year++;
             y+=40;
-        }else{
+        }else{*/
             
-            
-            [[UIColor lightGrayColor]set];
-            CGContextRef currentContext = UIGraphicsGetCurrentContext();
-            
-            CGContextSetLineWidth(currentContext, 19);
-            CGContextMoveToPoint(currentContext, 124, z);
-            CGContextAddLineToPoint(currentContext, v[p], z);
-            CGContextStrokePath(currentContext);
-            z+=20;
-            a = v[p];
-            
-            [[UIColor blueColor]set];
-            NSString *myString = @"$ ";
-            UIFont *helveticaBold = [UIFont fontWithName:@"HelveticaNeue-Bold"size:15.0f];
-            NSString *value = [NSString stringWithFormat:@"%d",a];
-            NSString *concat = [myString stringByAppendingString:value];
-            [concat drawAtPoint:CGPointMake(270, y) withFont:helveticaBold];
-            year++;
-            y+=20;
-        }
-        
+         
         
         
     }
     
-    for ( p=0; p<=30; p++) {//
+    /*for ( p=0; p<=30; p++) {//
         [[UIColor darkGrayColor]set];
         CGContextRef currentContext = UIGraphicsGetCurrentContext();
         
@@ -296,7 +363,7 @@ int arr[];
      [path1 stroke];
      */
 
-}
+//}
 /*
 - (void)drawRect:(CGRect)rect
 {

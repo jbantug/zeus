@@ -5,10 +5,7 @@
 //  Created by Gov on 7/9/13.
 //  Copyright (c) 2013 Openkit. All rights reserved.
 //
-
 #import <UIKit/UIKit.h>
-#import "sqlite3.h"
-#import "mydata.h"
 
 #define kGraphHeight 950
 #define kDefaultGraphWidth 300
@@ -22,3 +19,4 @@
 @interface GraphView : UIView
 
 @end
+
